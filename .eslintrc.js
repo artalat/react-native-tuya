@@ -1,3 +1,3 @@
 module.exports = {
-  extends: '@volst',
+  extends: '@bluebase/code-standards/.eslintrc',
 };
