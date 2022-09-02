@@ -1,5 +1,6 @@
-import { DeviceBean } from './device';
 import { NativeModules, Platform } from 'react-native';
+
+import { DeviceBean } from './device';
 import { DeviceDetailResponse } from './home';
 
 const tuya = NativeModules.TuyaActivatorModule;
@@ -7,7 +8,7 @@ const tuyaBLEActivator = NativeModules.TuyaBLEActivatorModule;
 const tuyaBLEScanner = NativeModules.TuyaBLEScannerModule;
 
 export function openNetworkSettings() {
-  return tuya.openNetworkSettings({});
+	return tuya.openNetworkSettings({});
 }
 
 export type InitActivatorParams = {
@@ -26,35 +27,35 @@ export interface InitBluetoothActivatorParams {
 }
 
 export function initActivator(
-  params: InitActivatorParams
+	params: InitActivatorParams
 ): Promise<DeviceDetailResponse> {
-  return tuya.initActivator(params);
+	return tuya.initActivator(params);
 }
 
 export function stopConfig() {
-  return tuya.stopConfig();
+	return tuya.stopConfig();
 }
 
 export function startBluetoothScan() {
-  if (Platform.OS === 'ios') {
-    return tuyaBLEScanner.startBluetoothScan();
-  }
-  return tuya.startBluetoothScan();
+	if (Platform.OS === 'ios') {
+		return tuyaBLEScanner.startBluetoothScan();
+	}
+	return tuya.startBluetoothScan();
 }
 
 export function initBluetoothDualModeActivator(
-  params: InitBluetoothActivatorParams
+	params: InitBluetoothActivatorParams
 ): Promise<DeviceBean> {
-  if (Platform.OS === 'ios') {
-    return tuyaBLEActivator.initActivator(params);
-  }
-  return tuya.initBluetoothDualModeActivator(params);
+	if (Platform.OS === 'ios') {
+		return tuyaBLEActivator.initActivator(params);
+	}
+	return tuya.initBluetoothDualModeActivator(params);
 }
 
 export function getCurrentWifi(
-  success: (ssid: string) => void,
-  error: () => void
+	success: (ssid: string) => void,
+	error: () => void
 ) {
-  // We need the Allow While Using App location permission to use this.
-  return tuya.getCurrentWifi({}, success, error);
+	// We need the Allow While Using App location permission to use this.
+	return tuya.getCurrentWifi({}, success, error);
 }

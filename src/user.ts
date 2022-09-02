@@ -3,45 +3,45 @@ import { NativeModules } from 'react-native';
 const tuya = NativeModules.TuyaUserModule;
 
 export function registerAccountWithEmail(
-  params: RegisterAccountWithEmailParams
+	params: RegisterAccountWithEmailParams
 ): Promise<any> {
-  return tuya.registerAccountWithEmail(params);
+	return tuya.registerAccountWithEmail(params);
 }
 
 export function getRegisterEmailValidateCode(
-  params: GetEmailValidateCodeParams
+	params: GetEmailValidateCodeParams
 ): Promise<any> {
-  return tuya.getRegisterEmailValidateCode(params);
+	return tuya.getRegisterEmailValidateCode(params);
 }
 
 export function loginWithEmail(params: LoginWithEmailParams): Promise<any> {
-  return tuya.loginWithEmail(params);
+	return tuya.loginWithEmail(params);
 }
 
 export function getEmailValidateCode(
-  params: GetEmailValidateCodeParams
+	params: GetEmailValidateCodeParams
 ): Promise<any> {
-  return tuya.getEmailValidateCode(params);
+	return tuya.getEmailValidateCode(params);
 }
 
 export function resetEmailPassword(
-  params: ResetEmailPasswordParams
+	params: ResetEmailPasswordParams
 ): Promise<any> {
-  return tuya.resetEmailPassword(params);
+	return tuya.resetEmailPassword(params);
 }
 
 export function logout(): Promise<string> {
-  return tuya.logout();
+	return tuya.logout();
 }
 
 export async function getCurrentUser(): Promise<User | null> {
-  const user = await tuya.getCurrentUser();
-  // The iOS SDK returns an empty user model but the Android one doesn't.
-  return user && user.email ? user : null;
+	const user = await tuya.getCurrentUser();
+	// The iOS SDK returns an empty user model but the Android one doesn't.
+	return user && user.email ? user : null;
 }
 
 export function cancelAccount(): Promise<string> {
-  return tuya.cancelAccount();
+	return tuya.cancelAccount();
 }
 
 export type User = {

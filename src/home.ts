@@ -1,4 +1,5 @@
 import { NativeModules } from 'react-native';
+
 import { DeviceDps } from './device';
 
 const tuya = NativeModules.TuyaHomeModule;
@@ -14,9 +15,9 @@ export type QueryRoomListResponse = {
 }[];
 
 export function queryRoomList(
-  params: QueryRoomListParams
+	params: QueryRoomListParams
 ): Promise<QueryRoomListResponse> {
-  return tuya.queryRoomList(params);
+	return tuya.queryRoomList(params);
 }
 
 export type GetHomeDetailParams = {
@@ -42,9 +43,9 @@ export type GetHomeDetailResponse = {
 };
 
 export function getHomeDetail(
-  params: GetHomeDetailParams
+	params: GetHomeDetailParams
 ): Promise<GetHomeDetailResponse> {
-  return tuya.getHomeDetail(params);
+	return tuya.getHomeDetail(params);
 }
 
 export type UpdateHomeParams = {
@@ -56,7 +57,7 @@ export type UpdateHomeParams = {
 };
 
 export function updateHome(params: UpdateHomeParams): Promise<string> {
-  return tuya.updateHome(params);
+	return tuya.updateHome(params);
 }
 
 export type DismissHomeParams = {
@@ -64,7 +65,7 @@ export type DismissHomeParams = {
 };
 
 export function dismissHome(params: DismissHomeParams): Promise<string> {
-  return tuya.dismissHome(params);
+	return tuya.dismissHome(params);
 }
 
 export type SortRoomsParams = {
@@ -73,5 +74,5 @@ export type SortRoomsParams = {
 };
 
 export function sortRoom(params: SortRoomsParams): Promise<string> {
-  return tuya.sortRoom(params);
+	return tuya.sortRoom(params);
 }

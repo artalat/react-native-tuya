@@ -12,19 +12,19 @@ export type MemberListItem = {
 export type QueryMemberListResponse = MemberListItem[];
 
 export async function queryMemberList(
-  params: QueryMemberListParams
+	params: QueryMemberListParams
 ): Promise<QueryMemberListResponse> {
-  let members = await tuya.queryMemberList(params);
-  // Tuya's Android SDK uses different property names than the iOS SDK...
-  if (Platform.OS === 'android') {
-    members = members.map((m: any) => ({
-      admin: m.admin,
-      username: m.account,
-      id: m.memberId,
-      dealStatus: m.memberStatus,
-    }));
-  }
-  return members;
+	let members = await tuya.queryMemberList(params);
+	// Tuya's Android SDK uses different property names than the iOS SDK...
+	if (Platform.OS === 'android') {
+		members = members.map((m: any) => ({
+			admin: m.admin,
+			username: m.account,
+			id: m.memberId,
+			dealStatus: m.memberStatus,
+		}));
+	}
+	return members;
 }
 
 export type AddMemberParams = {
@@ -36,7 +36,7 @@ export type AddMemberParams = {
 };
 
 export function addMember(params: AddMemberParams): Promise<any> {
-  return tuya.addMember(params);
+	return tuya.addMember(params);
 }
 
 export type RemoveMemberParams = {
@@ -44,5 +44,5 @@ export type RemoveMemberParams = {
 };
 
 export function removeMember(params: RemoveMemberParams): Promise<any> {
-  return tuya.removeMember(params);
+	return tuya.removeMember(params);
 }

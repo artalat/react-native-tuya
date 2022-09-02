@@ -1,4 +1,9 @@
 {
+  "name": "@artalat/react-native-tuya",
+  "description": "React Native bindings for the Tuya SDK",
+  "homepage": "https://github.com/Volst/react-native-tuya#readme",
+  "author": "Kees Kluskens",
+  "module": "dist/react-native-tuya.esm.js",
   "version": "0.3.14",
   "license": "MIT",
   "main": "dist/index.js",
@@ -19,35 +24,26 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
-    "lint": "tsdx lint",
+    "lint": "eslint src --ext=ts,tsx",
+    "fix": "eslint src --ext=ts,tsx --fix",
     "prepare": "tsdx build"
   },
   "peerDependencies": {
     "react-native": ">=0.61.5"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
-  "prettier": {
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
-  "name": "@artalat/react-native-tuya",
-  "description": "React Native bindings for the Tuya SDK",
-  "homepage": "https://github.com/Volst/react-native-tuya#readme",
-  "author": "Kees Kluskens",
-  "module": "dist/react-native-tuya.esm.js",
   "devDependencies": {
     "@bluebase/code-standards": "^2.21.0",
     "@types/jest": "^25.1.2",
     "@types/react-native": "^0.61.16",
-    "@volst/eslint-config": "^4.1.1",
-    "husky": "^4.2.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
     "react-native": "^0.61.5",
     "tsdx": "^0.12.3",
     "tslib": "^1.10.0",
     "typescript": "^3.7.5"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5"
   }
 }

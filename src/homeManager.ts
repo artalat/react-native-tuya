@@ -11,7 +11,7 @@ export type CreateHomeParams = {
 };
 
 export function createHome(params: CreateHomeParams): Promise<string> {
-  return tuya.createHome(params);
+	return tuya.createHome(params);
 }
 
 export type HomeDetailsResponse = {
@@ -30,15 +30,15 @@ export type HomeDetailsResponse = {
 export type QueryHomeListResponse = HomeDetailsResponse[];
 
 export async function queryHomeList(): Promise<QueryHomeListResponse> {
-  let homes = await tuya.queryHomeList();
-  // Tuya's Android SDK uses different property names than the iOS SDK...
-  if (Platform.OS === 'android') {
-    homes = homes.map((m: any) => ({
-      ...m,
-      dealStatus: m.homeStatus,
-    }));
-  }
-  return homes;
+	let homes = await tuya.queryHomeList();
+	// Tuya's Android SDK uses different property names than the iOS SDK...
+	if (Platform.OS === 'android') {
+		homes = homes.map((m: any) => ({
+			...m,
+			dealStatus: m.homeStatus,
+		}));
+	}
+	return homes;
 }
 
 export type JoinFamilyParams = {
@@ -47,5 +47,5 @@ export type JoinFamilyParams = {
 };
 
 export function joinFamily(params: JoinFamilyParams) {
-  return tuya.joinFamily(params);
+	return tuya.joinFamily(params);
 }

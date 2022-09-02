@@ -13,7 +13,7 @@ export type GetRoomDeviceListResponse = {
 };
 
 export function getRoomDeviceList(
-  params: GetRoomDeviceListParams
+	params: GetRoomDeviceListParams
 ): Promise<GetRoomDeviceListResponse> {
-  return tuya.getRoomDeviceList(params);
+	return tuya.getRoomDeviceList(params);
 }

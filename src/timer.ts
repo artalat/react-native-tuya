@@ -1,4 +1,5 @@
 import { NativeModules } from 'react-native';
+
 import { DeviceDps } from './device';
 
 const tuya = NativeModules.TuyaTimerModule;
@@ -12,9 +13,9 @@ export type AddTimerWithTaskDpsParams = {
 };
 
 export function addTimerWithTask(
-  params: AddTimerWithTaskDpsParams
+	params: AddTimerWithTaskDpsParams
 ): Promise<any> {
-  return tuya.addTimerWithTask(params);
+	return tuya.addTimerWithTask(params);
 }
 
 export type UpdateTimerWithTaskParams = AddTimerWithTaskDpsParams & {
@@ -23,9 +24,9 @@ export type UpdateTimerWithTaskParams = AddTimerWithTaskDpsParams & {
 };
 
 export function updateTimerWithTask(
-  params: UpdateTimerWithTaskParams
+	params: UpdateTimerWithTaskParams
 ): Promise<any> {
-  return tuya.updateTimerWithTask(params);
+	return tuya.updateTimerWithTask(params);
 }
 
 export type GetTimerTaskStatusWithDeviceIdParams = {
@@ -33,9 +34,9 @@ export type GetTimerTaskStatusWithDeviceIdParams = {
 };
 
 export function getTimerTaskStatusWithDeviceId(
-  params: GetTimerTaskStatusWithDeviceIdParams
+	params: GetTimerTaskStatusWithDeviceIdParams
 ): Promise<any> {
-  return tuya.getTimerTaskStatusWithDeviceId(params);
+	return tuya.getTimerTaskStatusWithDeviceId(params);
 }
 
 export type GetAllTimerWithDeviceIdParams = {
@@ -55,13 +56,13 @@ export type TimerTask = {
 export type GetAllTimerWithDeviceIdResponse = TimerTask[];
 
 export async function getAllTimerWithDeviceId(
-  params: GetAllTimerWithDeviceIdParams
+	params: GetAllTimerWithDeviceIdParams
 ): Promise<GetAllTimerWithDeviceIdResponse> {
-  const timers = await tuya.getAllTimerWithDeviceId(params);
-  timers.forEach((t: any) => {
-    t.timerTaskStatus.open = !!t.timerTaskStatus.open;
-  });
-  return timers;
+	const timers = await tuya.getAllTimerWithDeviceId(params);
+	timers.forEach((t: any) => {
+		t.timerTaskStatus.open = !!t.timerTaskStatus.open;
+	});
+	return timers;
 }
 
 export type RemoveTimerWithTaskParams = {
@@ -71,9 +72,9 @@ export type RemoveTimerWithTaskParams = {
 };
 
 export function removeTimerWithTask(
-  params: RemoveTimerWithTaskParams
+	params: RemoveTimerWithTaskParams
 ): Promise<any> {
-  return tuya.removeTimerWithTask(params);
+	return tuya.removeTimerWithTask(params);
 }
 
 export type UpdateTimerStatusWithTaskParams = {
@@ -84,7 +85,7 @@ export type UpdateTimerStatusWithTaskParams = {
 };
 
 export function updateTimerStatusWithTask(
-  params: UpdateTimerStatusWithTaskParams
+	params: UpdateTimerStatusWithTaskParams
 ): Promise<any> {
-  return tuya.updateTimerStatusWithTask(params);
+	return tuya.updateTimerStatusWithTask(params);
 }

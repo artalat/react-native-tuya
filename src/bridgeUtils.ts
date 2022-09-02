@@ -11,6 +11,6 @@ export const SINGLETRANSFER = 'SingleTransfer';
 let eventEmitter = new NativeEventEmitter(NativeModules.TuyaRNEventEmitter);
 
 export function addEvent(eventName: string, callback: (data: any) => any) {
-  return eventEmitter.addListener(eventName, callback);
+	return eventEmitter.addListener(eventName, callback);
 }
 export const bridge = (key: string, id: string | number) => `${key}//${id}`;
