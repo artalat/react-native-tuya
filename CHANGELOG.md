@@ -1,3 +1,13 @@
+# [1.2.0](https://github.com/artalat/react-native-tuya/compare/v1.1.0...v1.2.0) (2022-09-03)
+
+### Bug Fixes
+
+*   **expo plugin:** Bug fixes ([a1e25b2](https://github.com/artalat/react-native-tuya/commit/a1e25b23d63eb6312d09cf638d50287273041082))
+
+### Features
+
+*   Added Andoid onCreate listener ([70855e8](https://github.com/artalat/react-native-tuya/commit/70855e887f96a1240f64c8f16bdeb4ab77a72b87))
+
 # [1.1.0](https://github.com/artalat/react-native-tuya/compare/v1.0.0...v1.1.0) (2022-09-03)
 
 ### Features
