@@ -7,6 +7,18 @@ import { Props } from './';
 const { addMetaDataItemToMainApplication, getMainApplicationOrThrow } = AndroidConfig.Manifest;
 
 export const withTuyaOnAndroid: ConfigPlugin<Props> = (config, props) => {
+	if (!props.androidApiKey) {
+		throw new Error(
+			'You must provide an androidApiKey to use react-native-tuya. See the docs for more info: https://docs.expo.io/versions/latest/sdk/react-native-tuya/',
+		);
+	}
+
+	if (!props.androidApiSecret) {
+		throw new Error(
+			'You must provide an androidApiSecret to use react-native-tuya. See the docs for more info: https://docs.expo.io/versions/latest/sdk/react-native-tuya/',
+		);
+	}
+
 	return withAndroidManifest(config, async config => {
 		// Modifiers can be async, but try to keep them fast.
 		config.modResults = await setCustomConfigAsync(config as any, config.modResults, props);
@@ -28,7 +40,7 @@ async function setCustomConfigAsync(
 		// value for `android:name`
 		'TUYA_SMART_APPKEY',
 		// value for `android:value`
-		props.apiKey
+		props.androidApiKey
 	);
 
 	addMetaDataItemToMainApplication(
@@ -36,7 +48,7 @@ async function setCustomConfigAsync(
 		// value for `android:name`
 		'TUYA_SMART_SECRET',
 		// value for `android:value`
-		props.apiSecret
+		props.androidApiSecret
 	);
 
 	return androidManifest;

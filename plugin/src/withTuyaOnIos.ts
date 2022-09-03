@@ -10,6 +10,18 @@ export const withTuyaOnIos: ConfigPlugin<Props> = (
 	config,
 	props
 ) => {
+	if (!props.iosApiKey) {
+		throw new Error(
+			'You must provide an iosApiKey to use react-native-tuya. See the docs for more info: https://docs.expo.io/versions/latest/sdk/react-native-tuya/',
+		);
+	}
+
+	if (!props.iosApiSecret) {
+		throw new Error(
+			'You must provide an iosApiSecret to use react-native-tuya. See the docs for more info: https://docs.expo.io/versions/latest/sdk/react-native-tuya/',
+		);
+	}
+
 	withTuyaAppDelegate(config, props);
 	withTuyaEntitlements(config);
 
@@ -48,7 +60,7 @@ export function addTuyaAppDelegateInit(src: string, props: Props): MergeResults 
 			'    [[TuyaSmartSDK sharedInstance] setDebugMode:YES];',
 			'  #endif',
 			'',
-			`  [[TuyaSmartSDK sharedInstance] startWithAppKey:@"${props.apiKey}" secretKey:@"${props.apiSecret}"];`,
+			`  [[TuyaSmartSDK sharedInstance] startWithAppKey:@"${props.iosApiKey}" secretKey:@"${props.iosApiSecret}"];`,
 		].join('\n'),
 		// anchor:
 		//   / {2}UIView *rootView = [self.reactDelegate createRootViewWithBridge:bridge moduleName:@"main" initialProperties:nil];/,

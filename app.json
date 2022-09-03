@@ -4,8 +4,10 @@
       [
         "./app.plugin",
         {
-          "apiKey": "string-123",
-          "apiSecret": "string-546"
+          "iosApiKey": "string-123",
+          "iosApiSecret": "string-546",
+          "androidApiKey": "string-123",
+          "androidApiSecret": "string-546"
         }
       ]
     ]

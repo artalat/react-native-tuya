@@ -22,11 +22,11 @@ This library contains native code which is automatically linked in React Native 
 
 ## Installation
 
-In the Tuya development environment create a new app and make sure you have an "App key", "App secret" and "Secure image". [Read how to do this](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/resource/Preparation.html).
+In the Tuya development environment create a new app and make sure you have an "App key", "App secret" and "Secure image". [Read how to do this](https://developer.tuya.com/en/docs/app-development/preparation?id=Ka69nt983bhh5).
 
 ### iOS
 
-Put the secure image into the root path of your project as [explained here](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/resource/Preparation.html).
+Put the secure image into the root path of your project as [explained here](https://developer.tuya.com/en/docs/app-development/preparation?id=Ka69nt983bhh5).
 
 In `ios/AppDelegate.m`, add the following import;
 
@@ -48,7 +48,7 @@ Now replace the `xxx` with your app key and secret key.
 
 ### Android
 
-Assuming you already have created an app in the Tuya development environment (otherwise follow the iOS steps before this), follow [these steps](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/en/resource/Integrated.html#3-integrated-security-image). You should now have an app key, app secret and security image for Android. Make sure the security image is put in `android/src/main/assets/t_s.bmp`.
+Assuming you already have created an app in the Tuya development environment (otherwise follow the iOS steps before this), follow [these steps](https://developer.tuya.com/en/docs/app-development/preparation?id=Ka69nt983bhh5). You should now have an app key, app secret and security image for Android. Make sure the security image is put in `android/src/main/assets/t_s.bmp`.
 
 Open your `AndroidManifest.xml` and put the following **in the `<application>` tag**:
 

@@ -6,23 +6,13 @@ import { withTuyaOnIos } from './withTuyaOnIos';
 const pkg = require('../../package.json');
 
 export type Props = {
-  apiKey: string;
-  apiSecret: string;
+  iosApiKey: string;
+  iosApiSecret: string;
+  androidApiKey: string;
+  androidApiSecret: string;
 };
 
 const withTuya: ConfigPlugin<Props> = (config, props) => {
-	if (!props.apiKey) {
-		throw new Error(
-			'You must provide an apiKey to use react-native-tuya. See the docs for more info: https://docs.expo.io/versions/latest/sdk/react-native-tuya/',
-		);
-	}
-
-	if (!props.apiSecret) {
-		throw new Error(
-			'You must provide an apiSecret to use react-native-tuya. See the docs for more info: https://docs.expo.io/versions/latest/sdk/react-native-tuya/',
-		);
-	}
-
 	config = withTuyaOnIos(config, props);
 	config = withTuyaOnAndroid(config, props);
 	return config;
