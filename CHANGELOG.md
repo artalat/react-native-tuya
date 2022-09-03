@@ -1,3 +1,9 @@
+# [1.3.0](https://github.com/artalat/react-native-tuya/compare/v1.2.0...v1.3.0) (2022-09-03)
+
+### Features
+
+*   **expo plugin:** Seperate configs for ios & android ([74f4485](https://github.com/artalat/react-native-tuya/commit/74f4485bef395bdd4f777df38e96b65ed8a0daa2))
+
 # [1.2.0](https://github.com/artalat/react-native-tuya/compare/v1.1.0...v1.2.0) (2022-09-03)
 
 ### Bug Fixes
