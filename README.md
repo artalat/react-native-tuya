@@ -97,6 +97,18 @@ android {
 }
 ```
 
+Troubleshooting:
+
+`Caused by: java.lang.RuntimeException: Manifest merger failed : Attribute application@allowBackup value=(true) from AndroidManifest.xml:14:162-188
+`
+
+I fixed this issue by adding the following lines to the Android Manifest file.
+In the manifest tag:
+xmlns:tools="http://schemas.android.com/tools"
+
+In the application tag just below android:name:
+tools:replace="android:allowBackup"
+
 ## Usage
 
 Now you can actually use the methods in this package. Unfortunately I don't have time to document them all, so it is advised to read the source code, but here's a start.

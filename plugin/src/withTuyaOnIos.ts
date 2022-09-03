@@ -66,7 +66,7 @@ export function addTuyaAppDelegateInit(src: string, props: Props): MergeResults 
 		//   / {2}UIView *rootView = [self.reactDelegate createRootViewWithBridge:bridge moduleName:@"main" initialProperties:nil];/,
 		anchor:
       / rootView\.backgroundColor = (.*?);/,
-		offset: -1,
+		offset: 1,
 		comment: '//',
 	});
 }
