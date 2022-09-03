@@ -1,3 +1,9 @@
+# [1.1.0](https://github.com/artalat/react-native-tuya/compare/v1.0.0...v1.1.0) (2022-09-03)
+
+### Features
+
+*   Added Expo Plugin ([1555a50](https://github.com/artalat/react-native-tuya/commit/1555a5021f242b01780f4839bf705885346b18e6))
+
 # 1.0.0 (2022-09-03)
 
 ### Bug Fixes
