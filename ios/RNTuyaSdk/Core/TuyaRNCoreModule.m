@@ -13,8 +13,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import "TuyaRNUtils+Network.h"
 
-#define kTuyaCoreModuleAppkey @""
-#define kTuyaCoreModuleAppSecret @""
+#define kTuyaCoreModuleAppkey @"appKey"
+#define kTuyaCoreModuleAppSecret @"appSecret"
 #define kTuyaCoreModuleParamLat @"lat"
 #define kTuyaCoreModuleParamLon @"lon"
 
@@ -33,16 +33,13 @@
 RCT_EXPORT_MODULE(TuyaCoreModule)
 
 RCT_EXPORT_METHOD(initWithOptions:(NSDictionary *)params) {
-  
+
   NSString *appKey = params[kTuyaCoreModuleAppkey];
   NSString *appSecret = params[kTuyaCoreModuleAppSecret];
-  
+
   dispatch_async(dispatch_get_main_queue(), ^{
-//    [[TuyaSmartSDK sharedInstance] startWithAppKey:appKey secretKey:appSecret];
-//#ifdef DEBUG
-//    [TuyaSmartSDK sharedInstance].debugMode = YES;
-//#endif
-    
+   [[TuyaSmartSDK sharedInstance] startWithAppKey:appKey secretKey:appSecret];
+
     if (!self.locationManager) {
       self.locationManager = [CLLocationManager new];
       self.locationManager.delegate = self;
@@ -62,13 +59,13 @@ RCT_REMAP_METHOD(apiRequest,
                  postData:(NSDictionary *)parameters
                  resolver:(RCTPromiseResolveBlock)resolver
                  rejecter:(RCTPromiseRejectBlock)rejecter) {
-  
+
   NSString *apiName       = [parameters objectForKey:@"apiName"];
   NSDictionary *postData  = [parameters objectForKey:@"postData"];
   NSString *version       = [parameters objectForKey:@"version"];
-  
+
   TuyaSmartRequest *request = [TuyaSmartRequest new];
-  
+
   [request requestWithApiName:apiName postData:postData version:version success:^(id result) {
     if ([result isKindOfClass:[NSDictionary class]] || [result isKindOfClass:[NSArray class]]) {
       if (resolver) {
@@ -88,17 +85,17 @@ RCT_REMAP_METHOD(apiRequest,
 
 //判断网络
 RCT_EXPORT_METHOD(openNetworkSettings:(NSDictionary *)params) {
-  
+
   [TuyaRNUtils openNetworkSettings];
-  
+
 }
 
 RCT_EXPORT_METHOD(exitApp:(NSDictionary *)params) {
-  
+
 }
 
 RCT_EXPORT_METHOD(onDestory:(NSDictionary *)params) {
-  
+
 }
 
 RCT_EXPORT_METHOD(setLocation:(NSDictionary *)params) {
@@ -118,14 +115,14 @@ RCT_EXPORT_METHOD(getLocationData:(RCTPromiseResolveBlock)resolver
   //
   NSString *lat = [[NSUserDefaults standardUserDefaults] objectForKey:kTuyaCoreModuleUserDefaultLocation_lat];
   NSString *lon = [[NSUserDefaults standardUserDefaults] objectForKey:kTuyaCoreModuleUserDefaultLocation_lon];
-  
+
   if (lat.length == 0) {
     lat = @"";
   }
   if (lon.length == 0) {
     lon = @"";
   }
-  
+
   if (resolver) {
     resolver(@{
                kTuyaCoreModuleParamLat: [lat isKindOfClass:[NSString class]] ? lat : @"",
@@ -144,12 +141,12 @@ RCT_EXPORT_METHOD(getLocationData:(RCTPromiseResolveBlock)resolver
     return;
   }
   CLLocation *location = locations[0];
-  
+
   [self.locationManager stopUpdatingLocation];
-  
+
   NSString *latitude = [NSString stringWithFormat:@"%f", location.coordinate.latitude];
   NSString *longitude = [NSString stringWithFormat:@"%f", location.coordinate.longitude];
-  
+
   [[NSUserDefaults standardUserDefaults] setObject:latitude forKey:kTuyaCoreModuleParamLat];
   [[NSUserDefaults standardUserDefaults] setObject:longitude forKey:kTuyaCoreModuleParamLon];
   [[NSUserDefaults standardUserDefaults] synchronize];

@@ -138,7 +138,6 @@ function addPackageOptions(src: string, props: Props) {
 
 const withTuyaMainApplication: ConfigPlugin<Props> = (config, props) => {
 	return withMainApplication(config, (config) => {
-    console.log('withTuyaMainApplication', config.modResults.language);
 		if (['java'].includes(config.modResults.language)) {
 			try {
 				config.modResults.contents = addTuyaMainApplicationImport(
