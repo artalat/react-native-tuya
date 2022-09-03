@@ -24,7 +24,28 @@ This library contains native code which is automatically linked in React Native 
 
 In the Tuya development environment create a new app and make sure you have an "App key", "App secret" and "Secure image". [Read how to do this](https://developer.tuya.com/en/docs/app-development/preparation?id=Ka69nt983bhh5).
 
-### iOS
+
+### Expo
+
+The easiest way to use this library with Expo is to use Config Plugin. In your app.json add the following:
+
+```
+"plugins": [
+  [
+    "@artalat/react-native-tuya",
+    {
+      "iosApiKey": "xxxxxxx",
+      "iosApiSecret": "xxxxxxx",
+      "androidApiKey": "xxxxxxx",
+      "androidApiSecret": "xxxxxxx"
+    }
+  ]
+]
+```
+
+The config plugin will automatically install the library and link it. You can also use the config plugin to update the API keys.
+
+### Manual: iOS
 
 Put the secure image into the root path of your project as [explained here](https://developer.tuya.com/en/docs/app-development/preparation?id=Ka69nt983bhh5).
 
@@ -46,7 +67,7 @@ Then, under the `roootView.backgroundColor` line in the same file, add this:
 
 Now replace the `xxx` with your app key and secret key.
 
-### Android
+### Manual: Android
 
 Assuming you already have created an app in the Tuya development environment (otherwise follow the iOS steps before this), follow [these steps](https://developer.tuya.com/en/docs/app-development/preparation?id=Ka69nt983bhh5). You should now have an app key, app secret and security image for Android. Make sure the security image is put in `android/src/main/assets/t_s.bmp`.
 
@@ -81,7 +102,9 @@ public void onCreate() {
 }
 ```
 
-Now you can try to build, but you'll probably run into an error saying that it can't choose between `libc++_shared` or something. One fix for this (don't know if it's the best fix) is to open `android/app/build.gradle` and add this;
+### Troubleshooting:
+
+1. If run into an error saying that it can't choose between `libc++_shared` or something. One fix for this (don't know if it's the best fix) is to open `android/app/build.gradle` and add this;
 
 ```
 android {
@@ -97,17 +120,16 @@ android {
 }
 ```
 
-Troubleshooting:
+2. If you run into the following error:
 
-`Caused by: java.lang.RuntimeException: Manifest merger failed : Attribute application@allowBackup value=(true) from AndroidManifest.xml:14:162-188
-`
+```
+Caused by: java.lang.RuntimeException: Manifest merger failed : Attribute application@allowBackup value=(true) from AndroidManifest.xml:14:162-188
+```
 
-I fixed this issue by adding the following lines to the Android Manifest file.
-In the manifest tag:
-xmlns:tools="http://schemas.android.com/tools"
+You can fiz this issue by adding the following lines to the Android Manifest file:
 
-In the application tag just below android:name:
-tools:replace="android:allowBackup"
+- In the manifest tag: `xmlns:tools="http://schemas.android.com/tools"`
+- In the application tag just below android:name: `tools:replace="android:allowBackup"`
 
 ## Usage
 
