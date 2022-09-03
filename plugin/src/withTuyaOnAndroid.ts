@@ -1,7 +1,7 @@
 import { AndroidConfig, ConfigPlugin, withAndroidManifest } from '@expo/config-plugins';
 import { ExpoConfig } from '@expo/config-types';
 
-import { Props } from './withTuya';
+import { Props } from './';
 
 // Using helpers keeps error messages unified and helps cut down on XML format changes.
 const { addMetaDataItemToMainApplication, getMainApplicationOrThrow } = AndroidConfig.Manifest;

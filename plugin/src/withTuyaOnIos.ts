@@ -1,7 +1,7 @@
 import { ConfigPlugin, withAppDelegate, withEntitlementsPlist, withInfoPlist } from '@expo/config-plugins';
 import { mergeContents, MergeResults } from '@expo/config-plugins/build/utils/generateCode';
 
-import { Props } from './withTuya';
+import { Props } from './';
 
 /**
  * Apply react-native-tuya configuration for Expo SDK 44 projects.
@@ -13,7 +13,9 @@ export const withTuyaOnIos: ConfigPlugin<Props> = (
 	withTuyaAppDelegate(config, props);
 	withTuyaEntitlements(config);
 
-	return withReactNativeTuyaInfoPlist(config, props);
+	// return withReactNativeTuyaInfoPlist(config, props);
+
+  return config;
 };
 
 const withReactNativeTuyaInfoPlist: ConfigPlugin<Props> = (
@@ -48,8 +50,10 @@ export function addTuyaAppDelegateInit(src: string, props: Props): MergeResults 
 			'',
 			`  [[TuyaSmartSDK sharedInstance] startWithAppKey:@"${props.apiKey}" secretKey:@"${props.apiSecret}"];`,
 		].join('\n'),
-		anchor:
-      / {2}UIView *rootView = [self.reactDelegate createRootViewWithBridge:bridge moduleName:@"main" initialProperties:nil];/,
+		// anchor:
+    //   / {2}UIView *rootView = [self.reactDelegate createRootViewWithBridge:bridge moduleName:@"main" initialProperties:nil];/,
+    anchor:
+      / rootView\.backgroundColor = (.*?);/,
 		offset: -1,
 		comment: '//',
 	});
