@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "plugins": [
+      [
+        "./app.plugin",
+        {
+          "apiKey": "string-123",
+          "apiSecret": "string-546"
+        }
+      ]
+    ]
+  }
+}
