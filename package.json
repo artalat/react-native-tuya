@@ -26,6 +26,7 @@
     "test": "tsdx test",
     "lint": "eslint src --ext=ts,tsx",
     "fix": "eslint src --ext=ts,tsx --fix",
+    "fix:md": "remark . -o",
     "prepare": "tsdx build"
   },
   "peerDependencies": {
@@ -38,6 +39,8 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-unused-imports": "^2.0.0",
     "react-native": "^0.61.5",
+    "remark-cli": "^10.0.0",
+    "remark-preset-lint-recommended": "^6.1.1",
     "tsdx": "^0.12.3",
     "tslib": "^1.10.0",
     "typescript": "^3.7.5"
