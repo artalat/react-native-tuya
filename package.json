@@ -24,7 +24,7 @@
   ],
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build && build:plugin",
+    "build": "tsdx build && yarn build:plugin",
     "test": "tsdx test",
     "lint": "eslint src plugin --ext=ts,tsx",
     "fix": "eslint src plugin --ext=ts,tsx --fix",
