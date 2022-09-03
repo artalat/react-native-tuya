@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/artalat/react-native-tuya/compare/v1.3.0...v1.4.0) (2022-09-03)
+
+### Features
+
+*   Added initWithOptions method ([025477d](https://github.com/artalat/react-native-tuya/commit/025477dd042c4e88a0764520c181e405de4029f1))
+*   **config plugin:** Adds onCreate lister as well as maven configs ([8b75949](https://github.com/artalat/react-native-tuya/commit/8b75949564ca14d29588c325eff361f638332fe4))
+
 # [1.3.0](https://github.com/artalat/react-native-tuya/compare/v1.2.0...v1.3.0) (2022-09-03)
 
 ### Features
