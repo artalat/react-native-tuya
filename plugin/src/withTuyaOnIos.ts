@@ -15,7 +15,7 @@ export const withTuyaOnIos: ConfigPlugin<Props> = (
 
 	// return withReactNativeTuyaInfoPlist(config, props);
 
-  return config;
+	return config;
 };
 
 const withReactNativeTuyaInfoPlist: ConfigPlugin<Props> = (
@@ -51,8 +51,8 @@ export function addTuyaAppDelegateInit(src: string, props: Props): MergeResults 
 			`  [[TuyaSmartSDK sharedInstance] startWithAppKey:@"${props.apiKey}" secretKey:@"${props.apiSecret}"];`,
 		].join('\n'),
 		// anchor:
-    //   / {2}UIView *rootView = [self.reactDelegate createRootViewWithBridge:bridge moduleName:@"main" initialProperties:nil];/,
-    anchor:
+		//   / {2}UIView *rootView = [self.reactDelegate createRootViewWithBridge:bridge moduleName:@"main" initialProperties:nil];/,
+		anchor:
       / rootView\.backgroundColor = (.*?);/,
 		offset: -1,
 		comment: '//',
