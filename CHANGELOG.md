@@ -1,3 +1,9 @@
+# [1.5.0](https://github.com/artalat/react-native-tuya/compare/v1.4.0...v1.5.0) (2022-09-05)
+
+### Features
+
+*   **ios:** Added getDevice method ([46e492b](https://github.com/artalat/react-native-tuya/commit/46e492bfefdfb9a428ec3dd00f332a64475d85a2))
+
 # [1.4.0](https://github.com/artalat/react-native-tuya/compare/v1.3.0...v1.4.0) (2022-09-03)
 
 ### Features
