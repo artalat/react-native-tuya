@@ -39,8 +39,7 @@ RCT_EXPORT_METHOD(registerDevListener:(NSDictionary *)params resolver:(RCTPromis
 }
 
 /**
- 设备监听删除
-
+ Device monitoring delete
  */
 RCT_EXPORT_METHOD(unRegisterDevListener:(NSDictionary *)params resolver:(RCTPromiseResolveBlock)resolver rejecter:(RCTPromiseRejectBlock)rejecter) {
   NSString *deviceId = params[kTuyaDeviceModuleDevId];
@@ -50,21 +49,21 @@ RCT_EXPORT_METHOD(unRegisterDevListener:(NSDictionary *)params resolver:(RCTProm
 
   TuyaSmartDevice *device = [TuyaSmartDevice deviceWithDeviceId:deviceId];
 
-  // 移除监听设备
+  // remove listening device
   [TuyaRNDeviceListener removeDevice:device type:TuyaRNDeviceListenType_DeviceInfo];
 
   self.smartDevice  = [self smartDeviceWithParams:params];
-  //取消设备监听
+  // Cancel device monitoring
   [TuyaRNDeviceListener removeDevice:self.smartDevice type:TuyaRNDeviceListenType_DeviceInfo];
 }
 
 
 /*
- * 通过局域网或者云端这两种方式发送控制指令给设备。send(通过局域网或者云端这两种方式发送控制指令给设备。)
- command的格式应符合{key:value} 例如 {"1":true}
+ * Send control commands to the device through the local area network or the cloud.
+ * command The format should match {key:value} E.g {"1":true}
  */
 RCT_EXPORT_METHOD(send:(NSDictionary *)params resolver:(RCTPromiseResolveBlock)resolver rejecter:(RCTPromiseRejectBlock)rejecter) {
-  //设备发送消息
+  // device sends message
   self.smartDevice  = [self smartDeviceWithParams:params];
   NSDictionary *command = params[kTuyaDeviceModuleCommand];
   [self.smartDevice publishDps:command success:^{
@@ -75,12 +74,11 @@ RCT_EXPORT_METHOD(send:(NSDictionary *)params resolver:(RCTPromiseResolveBlock)r
 }
 
 /**
- 查询单个dp数据
+ Query a single dp data
  */
 RCT_EXPORT_METHOD(getDp:(NSDictionary *)params resolver:(RCTPromiseResolveBlock)resolver rejecter:(RCTPromiseRejectBlock)rejecter) {
-
   NSString *dpId = params[kTuyaDeviceModuleDpId];
-  //读取dp点
+  // read dp points
   self.smartDevice  = [self smartDeviceWithParams:params];
   if (self.smartDevice) {
     if (resolver) {
@@ -89,9 +87,20 @@ RCT_EXPORT_METHOD(getDp:(NSDictionary *)params resolver:(RCTPromiseResolveBlock)
   }
 }
 
+RCT_EXPORT_METHOD(getDevice:(NSDictionary *)params resolver:(RCTPromiseResolveBlock)resolver rejecter:(RCTPromiseRejectBlock)rejecter) {
+	NSString *deviceId = params[kTuyaDeviceModuleDevId];
+
+  if(deviceId.length == 0) {
+    rejecter(@"error", @"deviceId is required", nil);
+  }
+
+  self.smartDevice  = [self smartDeviceWithParams:params];
+
+  resolver([self.smartDevice.deviceModel yy_modelToJSONObject]);
+}
 
 /**
- 设备重命名
+ Device rename
  */
 RCT_EXPORT_METHOD(renameDevice:(NSDictionary *)params resolver:(RCTPromiseResolveBlock)resolver rejecter:(RCTPromiseRejectBlock)rejecter) {
 

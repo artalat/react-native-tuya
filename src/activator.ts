@@ -1,7 +1,6 @@
 import { NativeModules, Platform } from 'react-native';
 
-import { DeviceBean } from './device';
-import { DeviceDetailResponse } from './home';
+import { DeviceBean, TuyaDeviceModel } from './device';
 
 const tuya = NativeModules.TuyaActivatorModule;
 const tuyaBLEActivator = NativeModules.TuyaBLEActivatorModule;
@@ -28,7 +27,7 @@ export interface InitBluetoothActivatorParams {
 
 export function initActivator(
 	params: InitActivatorParams
-): Promise<DeviceDetailResponse> {
+): Promise<TuyaDeviceModel> {
 	return tuya.initActivator(params);
 }
 
