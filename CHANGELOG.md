@@ -1,3 +1,9 @@
+# [1.6.0](https://github.com/artalat/react-native-tuya/compare/v1.5.0...v1.6.0) (2022-09-06)
+
+### Features
+
+*   **TuyaDeviceModel:** Improved typings ([2744f84](https://github.com/artalat/react-native-tuya/commit/2744f84bf81d42b196c1a63bad6dd35b26af21b1))
+
 # [1.5.0](https://github.com/artalat/react-native-tuya/compare/v1.4.0...v1.5.0) (2022-09-05)
 
 ### Features
