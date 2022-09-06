@@ -12,6 +12,7 @@ export interface TuyaDeviceModel {
 
 	name: string;
 	productId: string;
+	roomId: number;
 	homeId: number;
 	standard: boolean;
 	latitude: string;
@@ -19,6 +20,7 @@ export interface TuyaDeviceModel {
 	category: string;
 	categoryCode: string;
 	timezoneId: string;
+  verSw: string;
 	ip?: string;
 	mac?: string;
 
