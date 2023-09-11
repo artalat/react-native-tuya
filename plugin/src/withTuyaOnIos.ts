@@ -12,12 +12,14 @@ export const withTuyaOnIos: ConfigPlugin<Props> = (
 ) => {
 	if (!props.iosApiKey) {
 		throw new Error(
+			// eslint-disable-next-line max-len
 			'You must provide an iosApiKey to use react-native-tuya. See the docs for more info: https://docs.expo.io/versions/latest/sdk/react-native-tuya/',
 		);
 	}
 
 	if (!props.iosApiSecret) {
 		throw new Error(
+			// eslint-disable-next-line max-len
 			'You must provide an iosApiSecret to use react-native-tuya. See the docs for more info: https://docs.expo.io/versions/latest/sdk/react-native-tuya/',
 		);
 	}
@@ -60,12 +62,14 @@ export function addTuyaAppDelegateInit(src: string, props: Props): MergeResults 
 			'    [[TuyaSmartSDK sharedInstance] setDebugMode:YES];',
 			'  #endif',
 			'',
+			// eslint-disable-next-line max-len
 			`  [[TuyaSmartSDK sharedInstance] startWithAppKey:@"${props.iosApiKey}" secretKey:@"${props.iosApiSecret}"];`,
 		].join('\n'),
 		// anchor:
+		// eslint-disable-next-line max-len
 		//   / {2}UIView *rootView = [self.reactDelegate createRootViewWithBridge:bridge moduleName:@"main" initialProperties:nil];/,
 		anchor:
-      / rootView\.backgroundColor = (.*?);/,
+      /self.moduleName = @"main";/,
 		offset: 1,
 		comment: '//',
 	});
@@ -93,6 +97,7 @@ const withTuyaAppDelegate: ConfigPlugin<Props> = (config, props) => {
 			} catch (error) {
 				if ((error as any).code === 'ERR_NO_MATCH') {
 					throw new Error(
+						// eslint-disable-next-line max-len
 						'Cannot add Tuya Library to the project\'s AppDelegate because it\'s malformed. Please report this with a copy of your project AppDelegate.'
 					);
 				}
