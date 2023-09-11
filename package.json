@@ -4,7 +4,7 @@
   "homepage": "https://github.com/Volst/react-native-tuya#readme",
   "author": "Kees Kluskens",
   "module": "dist/react-native-tuya.esm.js",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",

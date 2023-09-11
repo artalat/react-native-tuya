@@ -1,3 +1,9 @@
+# [1.7.0](https://github.com/artalat/react-native-tuya/compare/v1.6.0...v1.7.0) (2023-09-11)
+
+### Features
+
+*   Updated to Expo 49 ([deca71f](https://github.com/artalat/react-native-tuya/commit/deca71f7c613891eea21b30ea8935730a5d5106a))
+
 # [1.6.0](https://github.com/artalat/react-native-tuya/compare/v1.5.0...v1.6.0) (2022-09-06)
 
 ### Features
