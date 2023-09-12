@@ -87,17 +87,6 @@ RCT_EXPORT_METHOD(getDp:(NSDictionary *)params resolver:(RCTPromiseResolveBlock)
   }
 }
 
-RCT_EXPORT_METHOD(getDevice:(NSDictionary *)params resolver:(RCTPromiseResolveBlock)resolver rejecter:(RCTPromiseRejectBlock)rejecter) {
-	NSString *deviceId = params[kTuyaDeviceModuleDevId];
-
-  if(deviceId.length == 0) {
-    rejecter(@"error", @"deviceId is required", nil);
-  }
-
-  self.smartDevice  = [self smartDeviceWithParams:params];
-
-  resolver([self.smartDevice.deviceModel yy_modelToJSONObject]);
-}
 
 /**
  Device rename
