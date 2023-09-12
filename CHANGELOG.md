@@ -1,3 +1,9 @@
+# [1.8.0](https://github.com/artalat/react-native-tuya/compare/v1.7.0...v1.8.0) (2023-09-12)
+
+### Features
+
+*   Updated libraries ([b6f5202](https://github.com/artalat/react-native-tuya/commit/b6f52021e4ad8a1240c905e832d504e9fdbea3d9))
+
 # [1.7.0](https://github.com/artalat/react-native-tuya/compare/v1.6.0...v1.7.0) (2023-09-11)
 
 ### Features
